@@ -10,7 +10,7 @@ paths:
   /v1/repos/{repo_id}/issues/:
     get:
       operationId: getRepoIssues
-      summary: Lista os problemas encontrados no repositório.
+      summary: Lista os problemas encontrados no repositório no DeepSource.
       parameters:
         - name: repo_id
           in: path
