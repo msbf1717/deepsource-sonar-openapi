@@ -20,11 +20,29 @@ paths:
             type: string
       responses:
         '200':
-          description: Lista de problemas encontrados no repositório
+          description: Lista de problemas encontrados no repositório.
           content:
             application/json:
               schema:
                 type: object
+                properties:
+                  issues:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        issue_code:
+                          type: string
+                        description:
+                          type: string
+                        location:
+                          type: string
+                        severity:
+                          type: string
+        '401':
+          description: Não autorizado. Verifique sua API Key.
+        '404':
+          description: Repositório não encontrado.
       security:
         - apiKeyAuth: []
 components:
