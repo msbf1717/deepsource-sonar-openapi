@@ -24,21 +24,7 @@ paths:
           content:
             application/json:
               schema:
-                type: object
-                properties:
-                  issues:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        issue_code:
-                          type: string
-                        description:
-                          type: string
-                        location:
-                          type: string
-                        severity:
-                          type: string
+                $ref: '#/components/schemas/IssuesResponse'
         '401':
           description: Não autorizado (verifique sua API Key)
         '404':
@@ -51,3 +37,26 @@ components:
       type: apiKey
       in: header
       name: Authorization
+  schemas:
+    IssuesResponse:
+      type: object
+      properties:
+        issues:
+          type: array
+          items:
+            $ref: '#/components/schemas/Issue'
+    Issue:
+      type: object
+      properties:
+        issue_code:
+          type: string
+          description: Código do problema
+        description:
+          type: string
+          description: Descrição do problema
+        location:
+          type: string
+          description: Localização no código
+        severity:
+          type: string
+          description: Severidade do problema
