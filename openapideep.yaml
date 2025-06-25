@@ -1,26 +1,26 @@
 openapi: 3.1.0
 info:
   title: DeepSource API
-  description: API para verificar problemas, bugs e code smells em repositórios usando DeepSource.
-  version: 1.0.0
+  description: API para listar problemas encontrados em um repositório no DeepSource.
+  version: '1.0'
 servers:
   - url: https://api.deepsource.io
-    description: DeepSource API
+    description: DeepSource API Server
 paths:
   /v1/repos/{repo_id}/issues/:
     get:
-      operationId: getRepoIssues
-      summary: Lista os problemas encontrados no repositório no DeepSource.
+      operationId: getRepositoryIssues
+      summary: Lista os problemas encontrados em um repositório
       parameters:
         - name: repo_id
           in: path
           required: true
-          description: ID ou slug do repositório (ex: github/user/repo)
+          description: O ID do repositório no formato github/user/repo
           schema:
             type: string
       responses:
         '200':
-          description: Lista de problemas encontrados no repositório.
+          description: Lista de problemas encontrados no repositório
           content:
             application/json:
               schema:
@@ -40,9 +40,9 @@ paths:
                         severity:
                           type: string
         '401':
-          description: Não autorizado. Verifique sua API Key.
+          description: Não autorizado (verifique sua API Key)
         '404':
-          description: Repositório não encontrado.
+          description: Repositório não encontrado
       security:
         - apiKeyAuth: []
 components:
