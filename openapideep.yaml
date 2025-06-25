@@ -2,7 +2,7 @@ openapi: 3.1.0
 info:
   title: DeepSource API
   description: API para listar problemas encontrados em um repositório no DeepSource.
-  version: '1.0'
+  version: "1.0"
 servers:
   - url: https://api.deepsource.io
     description: DeepSource API Server
@@ -19,15 +19,15 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           description: Lista de problemas encontrados no repositório
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/IssuesResponse'
-        '401':
+        "401":
           description: Não autorizado (verifique sua API Key)
-        '404':
+        "404":
           description: Repositório não encontrado
       security:
         - apiKeyAuth: []
