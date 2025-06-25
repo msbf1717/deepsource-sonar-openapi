@@ -5,6 +5,7 @@ info:
   version: 1.0.0
 servers:
   - url: https://api.deepsource.io
+    description: DeepSource API
 paths:
   /v1/repos/{repo_id}/issues/:
     get:
